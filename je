@@ -1,1 +1,30 @@
+pipeline {
+    agent any
+    tools { 
+        maven 'Maven'  
+        jdk 'JDK17' 
+    }
 
+    stages {
+        stage('SCM') {
+            steps {
+                echo 'Hello Clone stage'
+                git branch: 'main', credentialsId: '721a8e8f-f73d-4916-978f-829a2f500619', url: 'https://github.com/udaymuppuri/http.git'
+                }
+        }
+        stage('Build') {
+            steps {
+                echo 'Hello Build'
+                bat 'mvn clean install'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Hello Deploy'
+                
+
+                      
+            }
+        }
+    }
+}
