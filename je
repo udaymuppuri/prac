@@ -21,7 +21,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Hello Deploy'
-                
+                deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'a0754a8d-262e-4144-ac69-4afa821dbefa', path: '', url: 'http://localhost:8081/')], contextPath: 'JtSpringProject.war', war: '**/*.war'
 
                       
             }
